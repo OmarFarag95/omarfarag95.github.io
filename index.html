@@ -3,86 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Hamed</title>
+    <title>Omar Hamed | Applied Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
 
-        /* --- New Dark Theme --- */
+        :root {
+            --primary-color: #007acc;
+            --light-gray: #f5f5f5;
+            --dark-text: #333;
+            --light-text: #555;
+            --border-color: #eaeaea;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #121212; /* Dark background */
-            color: #e0e0e0; /* Light text color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-text);
             margin: 0;
             padding: 20px;
-            box-sizing: border-box;
         }
 
         .container {
-            background-color: #1e1e1e; /* Slightly lighter card background */
+            background-color: #ffffff;
+            max-width: 900px;
+            margin: 20px auto;
             padding: 40px;
-            border-radius: 16px;
-            border: 1px solid #333; /* Subtle border instead of shadow */
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        /* --- Profile Header --- */
+        .profile-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 25px;
-            border: 5px solid #333; /* Border color matching the theme */
+            flex-shrink: 0;
         }
-
-        h1 {
-            font-size: 2.8em;
-            margin: 0;
-            color: #ffffff; /* Pure white for the name */
+        
+        .profile-right h1 {
+            font-size: 2.5em;
+            margin: 0 0 5px 0;
             font-weight: 700;
         }
 
-        p.bio {
-            font-size: 1.1em;
-            color: #a9a9a9; /* Softer light grey for the bio */
-            margin: 15px 0 35px;
-            line-height: 1.7;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
+        .profile-right p.title {
+            font-size: 1.2em;
+            color: var(--light-text);
+            margin: 0 0 20px 0;
+        }
+        
+        .interests-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .interests-list li {
+            background-color: #eef5fa;
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
         }
 
         .socials {
             list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
+            padding: 0; margin: 0;
+            display: flex; gap: 20px;
+            flex-wrap: wrap;
         }
 
         .socials li a {
-            color: #a9a9a9; /* Default icon color */
-            font-size: 2.2em;
-            transition: color 0.3s ease, transform 0.3s ease;
+            color: #555;
+            font-size: 1.4em;
+            transition: color 0.3s ease;
         }
 
-        .socials li a:hover {
-            color: #00f5c8; /* Vibrant teal highlight color */
-            transform: scale(1.2) rotate(5deg);
+        .socials li a:hover { color: var(--primary-color); }
+
+        /* --- Navigation Tabs --- */
+        .tabs {
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .tabs nav { display: flex; gap: 30px; }
+
+        .tabs a {
+            padding: 10px 5px;
+            margin-bottom: -2px;
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+
+        .tabs a.active,
+        .tabs a:hover {
+            color: var(--dark-text);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* --- Content Sections --- */
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .content-section p {
+            line-height: 1.7;
+            font-size: 1.1em;
+            color: #444;
+        }
+        .content-section p a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .content-section p a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- CV Section Styling --- */
+        .cv-viewer {
+            width: 100%;
+            height: 800px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        /* --- UPDATED CV BUTTON STYLE --- */
+        .cv-link {
+            display: inline-block;
+            background-color: transparent; /* Changed */
+            color: var(--primary-color); /* Changed */
+            border: 2px solid var(--primary-color); /* Added */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Updated */
+        }
+        
+        .cv-link:hover {
+            background-color: var(--primary-color); /* Changed */
+            color: #ffffff; /* Changed */
+        }
+        
+        .cv-link i {
+            margin-right: 8px;
+        }
+
+        /* --- Responsive Layout --- */
+        @media (max-width: 650px) {
+            .container { padding: 20px; }
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .interests-list, .socials { justify-content: center; }
+            .tabs nav { gap: 15px; font-size: 0.9em; }
         }
     </style>
 </head>
@@ -90,35 +191,89 @@
 
     <div class="container">
         
-        <img src="personal_picture.jpg" alt="Omar Hamed" class="profile-pic">
+        <header class="profile-header">
+            <img src="personal_picture.jpg" alt="Omar Hamed" class="profile-pic">
+            <div class="profile-right">
+                <h1>Omar Hamed</h1>
+                <p class="title">Applied Scientist and Researcher.</p>
+                <ul class="interests-list">
+                    <li>Efficient AI</li>
+                    <li>Natural Language Processing</li>
+                    <li>Reasoning in Large Language Models</li>
+                    <li>Search and Information Retrieval</li>
+                    <li>Multimodality</li>
+                    <li>Explainable AI</li>
+                    <li>Continual Learning</li>
+                </ul>
+                 <ul class="socials">
+                    <li><a href="https://www.linkedin.com/in/omar-farag-ismail/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/OmarFarag95" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://scholar.google.com/citations?user=wkpXZ2wAAAAJ&hl=en" target="_blank"title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a></li>
+                    <li><a href="https://bsky.app/profile/omarfarag.bsky.social" target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a></li>
+                    <li><a href="https://www.goodreads.com/user/show/34167991-omar-farag" target="_blank" title="Goodreads"><i class="fab fa-goodreads"></i></a></li>
+                    <li><a href="mailto:omar16farag16@gmail.com" title="Email"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+        </header>
 
-        <h1>Omar Hamed</h1>
-        
-        <p class="bio">
-            My name is Omar Hamed, I am an applied scientist and aspiring researcher. Here you can find links to my work and social profiles.
-        </p>
+        <div class="tabs">
+            <nav>
+                <a href="#overview" class="active">Overview</a>
+                <a href="https://scholar.google.com/citations?user=wkpXZ2wAAAAJ&hl=en" target="_blank">Publications</a>
+                <a href="#cv">CV</a>
+            </nav>
+        </div>
 
-        <ul class="socials">
-            <li>
-                <a href="https://www.linkedin.com/in/omar-farag-ismail/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </li>
-            <li>
-                <a href="https://github.com/OmarFarag95" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            </li>
-            <li>
-                <a href="https://scholar.google.com/citations?user=wkpXZ2wAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-            </li>
-            <li>
-                <a href="https://bsky.app/profile/omarfarag.bsky.social" target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
-            </li>
-            <li>
-                <a href="https://www.goodreads.com/user/show/34167991-omar-farag" target="_blank" title="Goodreads"><i class="fab fa-goodreads"></i></a>
-            </li>
-            <li>
-                <a href="mailto:omar16farag16@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            </li>
-        </ul>
+        <main>
+            <section id="overview" class="content-section active">
+                <h2>Overview</h2>
+                <p>
+                    I am interested in applied research in the field of natural language processing, information retrieval and search engines, adaptive inference, explainable AI and continual learning.
+                </p>
+                <p>
+                    I enjoy diving into the details of how and why things work and am always interested in meaningful research that could have a real scientific impact.
+                </p>
+                 <p>
+                    In my free time, I enjoy learning new languages, reading, running, swimming, cycling and creating 2D & 3D animations.
+                </p>
+            </section>
+
+            <section id="cv" class="content-section">
+                <h2>Curriculum Vitae</h2>
+                <p>
+                    <a href="Omar_Hamed_CV.pdf" class="cv-link" target="_blank">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </p>
+                <iframe src="Omar_Hamed_CV.pdf" class="cv-viewer" title="CV Viewer"></iframe>
+            </section>
+
+        </main>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tabs a');
+            const sections = document.querySelectorAll('.content-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        tabs.forEach(item => {
+                            if (item.getAttribute('href').startsWith('#')) {
+                                item.classList.remove('active');
+                            }
+                        });
+                        this.classList.add('active');
+                        const targetId = this.getAttribute('href').substring(1);
+                        sections.forEach(section => {
+                            section.id === targetId ? section.classList.add('active') : section.classList.remove('active');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
