@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Hamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        /* --- New Dark Theme --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #1e1e1e; /* Slightly lighter card background */
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #333; /* Subtle border instead of shadow */
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 5px solid #333; /* Border color matching the theme */
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 0;
+            color: #ffffff; /* Pure white for the name */
+            font-weight: 700;
+        }
+
+        p.bio {
+            font-size: 1.1em;
+            color: #a9a9a9; /* Softer light grey for the bio */
+            margin: 15px 0 35px;
+            line-height: 1.7;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .socials {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .socials li a {
+            color: #a9a9a9; /* Default icon color */
+            font-size: 2.2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .socials li a:hover {
+            color: #00f5c8; /* Vibrant teal highlight color */
+            transform: scale(1.2) rotate(5deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <img src="personal_picture.jpg" alt="Omar Hamed" class="profile-pic">
+
+        <h1>Omar Hamed</h1>
+        
+        <p class="bio">
+            My name is Omar Hamed, I am an applied scientist and aspiring researcher. Here you can find links to my work and social profiles.
+        </p>
+
+        <ul class="socials">
+            <li>
+                <a href="https://www.linkedin.com/in/omar-farag-ismail/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </li>
+            <li>
+                <a href="https://github.com/OmarFarag95" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </li>
+            <li>
+                <a href="https://scholar.google.com/citations?user=wkpXZ2wAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+            </li>
+            <li>
+                <a href="https://bsky.app/profile/omarfarag.bsky.social" target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+            </li>
+            <li>
+                <a href="https://www.goodreads.com/user/show/34167991-omar-farag" target="_blank" title="Goodreads"><i class="fab fa-goodreads"></i></a>
+            </li>
+            <li>
+                <a href="mailto:omar16farag16@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
